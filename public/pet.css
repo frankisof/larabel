@@ -1,0 +1,99 @@
+/* Estilo general */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5; /* Fondo gris claro */
+    color: #333; /* Texto oscuro */
+}
+
+.vintage-background {
+    background-image: url('cascada-rio-en-la-selva_3840x2160_xtrafondos.com.jpg'); /* Cambia por tu imagen */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.vintage-header {
+    background: linear-gradient(to bottom, #5ba4cf, #357ab7); /* Azul vibrante */
+    color: #ffffff;
+    padding: 30px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid #357ab7;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.vintage-header h1 {
+    font-size: 3.5rem;
+    text-shadow: 
+        0px 2px 4px rgba(0, 0, 0, 0.5), 
+        0px 0px 10px rgba(255, 255, 255, 0.8);
+    color: #ffffff;
+    font-style: italic;
+}
+
+.vintage-header p {
+    font-style: italic;
+    color: #e6f7ff;
+}
+
+.menu-container {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.menu-btn {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 25px;
+    font-size: 1rem;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: linear-gradient(to bottom, #4CAF50, #388E3C); /* Verde vibrante */
+    border: 2px solid #2e7d32; /* Verde más oscuro */
+    border-radius: 8px;
+    text-decoration: none;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-btn:hover {
+    background: linear-gradient(to bottom, #66BB6A, #43A047); /* Verde más claro */
+    border: 2px solid #388E3C;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.menu-btn:active {
+    position: relative;
+    top: 2px; /* Simula movimiento hacia abajo */
+    box-shadow: none;
+}
+
+/* Botón de Inicio con estilo similar */
+.menu-btn.inicio {
+    background: linear-gradient(to bottom, #2196F3, #1976D2); /* Azul vibrante */
+    border: 2px solid #1565C0; /* Azul más oscuro */
+}
+
+.menu-btn.inicio:hover {
+    background: linear-gradient(to bottom, #42A5F5, #1E88E5); /* Azul más claro */
+    border: 2px solid #1976D2;
+}
+
+.vintage-card {
+    background: rgba(255, 255, 255, 0.9); /* Fondo blanco translúcido */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
