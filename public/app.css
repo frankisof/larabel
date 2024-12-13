@@ -4,11 +4,21 @@ body {
     padding: 0;
     background-color: #1b3a36;
     color: #f4f4f4;
+    background-image: url('ventana-azul-en-malta_3840x2160_xtrafondos.com.jpg'); /* Cambia por tu imagen */
+background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
 }
 
 /* Fondo vintage */
 .vintage-background {
-    background-image: url('perrito-bajo-el-agua_3840x2160_xtrafondos.com.jpg'); /* Cambia por tu imagen */
+    
+    /* Cambia por tu imagen */
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -104,10 +114,10 @@ body {
 /* Footer */
 .vintage-footer {
     background: rgba(34, 47, 62, 0.8);
-    color: #8fb9b9;
+    color:  #5a8d44;
     padding: 10px;
     text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-    border-top: 2px solid #8fb9b9;
+    border-top: 2px solid  #5a8d44;
 }.menu-container {
     margin-top: 20px;
     margin-bottom: 30px;
@@ -120,7 +130,7 @@ body {
     font-size: 1rem;
     text-transform: uppercase;
     color: #ffffff;
-    background: linear-gradient(to right, #6ab5d8, #5a8d44); /* Azul aperlado y verde metálico */
+    background-color: #5a8d44; /* Verde sólido */
     border: none;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
@@ -130,12 +140,11 @@ body {
 }
 
 .menu-btn:hover {
-    background: linear-gradient(to right, #5a8d44, #6ab5d8); /* Cambiamos el orden de los colores */
-    transform: scale(1.1);
-    color: #f0f8fa;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    background-color: #457039; /* Verde más oscuro */
+    transform: scale(1.1); /* Efecto de ampliación */
+    color: #f0f8fa; /* Color de texto más claro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
 }
-
 /* Animación de arriba a abajo al mantener el clic */
 .menu-btn:active {
     position: relative;

@@ -40,7 +40,7 @@
     .container {
         margin-top: 20px;
         font-family: 'Arial', sans-serif;
-        color: #333;
+        color: #f7f1f1;
     }
 
     .text-center {
@@ -64,7 +64,7 @@
     }
 
     .btn-primary {
-        background-color: #3498db;
+        background-color: #5a8d44;
         border: none;
     }
 

@@ -40,8 +40,6 @@
         </div>
     </main>
 
-    <footer class="vintage-footer text-center">
-        <p>&copy; 2024 Clínica Veterinaria PetCare - Todos los derechos reservados</p>
-    </footer>
+   
 </div>
 @endsection

@@ -1,8 +1,10 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\AuthController;
 
 // Rutas para PetController
 Route::get('/pet', [PetController::class, 'index'])->name('pet.index');
@@ -12,7 +14,8 @@ Route::get('/pets/{id}/edit', [PetController::class, 'edit'])->name('pets.edit')
 Route::put('/pets/{id}', [PetController::class, 'update'])->name('pets.update'); // Ruta para actualizar
 Route::delete('/pets/{id}', [PetController::class, 'destroy'])->name('pets.destroy'); // Ruta para eliminar
 Route::get('/pets/search', [PetController::class, 'search'])->name('pets.search'); // Ruta para buscar
-Route::get('/', function () { return view('home'); })->name('home');
+Route::get('/home', function () { return view('home'); })->name('home');
+Route::get('/', function () { return view('login'); })->name('login');
 
 // Rutas para ServiceController
 Route::get('/services', [ServiceController::class, 'index'])->name('service.index');
@@ -31,3 +34,7 @@ Route::get('/citas/{id}/edit', [AppointmentController::class, 'edit'])->name('ci
 Route::put('/citas/{id}', [AppointmentController::class, 'update'])->name('citas.update');
 Route::delete('/citas/{id}', [AppointmentController::class, 'destroy'])->name('citas.destroy');
 Route::get('/citas/search', [AppointmentController::class, 'search'])->name('citas.search');
+
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
