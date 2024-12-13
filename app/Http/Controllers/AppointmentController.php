@@ -13,20 +13,20 @@ class AppointmentController extends Controller
     // Muestra la lista de citas
     public function index()
     {
-        $appointments = Appointment::with(['pet', 'service'])->get(); // Obtiene todas las citas con sus relaciones
-        return view('Cita', compact('appointments')); // Devuelve la vista con las citas
+        $appointments = Appointment::with(['pet', 'service'])->get(); 
+        return view('Cita', compact('appointments')); 
     }
 
-    // Muestra el formulario para crear una nueva cita
+
     public function create()
     {
-        $pets = Pet::all(); // Obtiene todas las mascotas
-        $services = Service::all(); // Obtiene todos los servicios
+        $pets = Pet::all();
+        $services = Service::all(); 
 
         return view('createCita', compact('pets', 'services'));
     }
 
-    // Almacena una nueva cita en la base de datos
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -36,31 +36,31 @@ class AppointmentController extends Controller
             'time' => 'required|date_format:H:i',
         ]);
 
-        $appointment = Appointment::create($request->all()); // Crea una nueva cita
+        $appointment = Appointment::create($request->all());
 
-        return redirect()->route('citas.index')->with('success', 'Cita creada correctamente.'); // Redirige a la lista de citas
+        return redirect()->route('citas.index')->with('success', 'Cita creada correctamente.'); 
     }
 
-    // Muestra el formulario para editar una cita existente
+
     public function edit($id)
     {
-        $appointment = Appointment::find($id); // Obtén la cita por ID
+        $appointment = Appointment::find($id); 
 
         if ($appointment->date && is_string($appointment->date)) {
-            $appointment->date = new DateTime($appointment->date); // Convierte la cadena a DateTime
+            $appointment->date = new DateTime($appointment->date); 
         }
         if ($appointment->time && is_string($appointment->time)) {
-            $appointment->time = new DateTime($appointment->time); // Convierte la cadena a DateTime
+            $appointment->time = new DateTime($appointment->time);
         }
 
-        $pets = Pet::all(); // Obtiene todas las mascotas
-        $services = Service::all(); // Obtiene todos los servicios
+        $pets = Pet::all(); 
+        $services = Service::all(); 
         $appointment = Appointment::find($id); 
 
         return view('editCita', compact('appointment', 'pets', 'services'));
     }
 
-    // Actualiza los detalles de una cita en la base de datos
+
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -70,32 +70,32 @@ class AppointmentController extends Controller
             'time' => 'required|date_format:H:i',
         ]);
 
-        $appointments = Appointment::findOrFail($id); // Encuentra la cita por su ID
-        $appointments->update($request->all()); // Actualiza los detalles de la cita
+        $appointments = Appointment::findOrFail($id); 
+        $appointments->update($request->all()); 
 
         return redirect()->route('citas.index')->with('success', 'Cita actualizada correctamente.');
     }
 
-    // Elimina una cita de la base de datos
+
     public function destroy($id)
     {
-        $appointment = Appointment::findOrFail($id); // Encuentra la cita por su ID
-        $appointment->delete(); // Elimina la cita
+        $appointment = Appointment::findOrFail($id); 
+        $appointment->delete(); 
 
-        return redirect()->route('citas.index')->with('success', 'Cita eliminada correctamente.'); // Redirige a la lista de citas
+        return redirect()->route('citas.index')->with('success', 'Cita eliminada correctamente.'); 
     }
 
     public function search(Request $request)
     {
-        $query = $request->input('query'); // Obtiene la palabra clave de búsqueda
+        $query = $request->input('query');
         
-        // Filtra las citas según el nombre de la mascota o el servicio
+
         $appointments = Appointment::whereHas('pet', function($q) use ($query) {
             $q->where('name', 'LIKE', "%$query%");
         })->orWhereHas('service', function($q) use ($query) {
             $q->where('name', 'LIKE', "%$query%");
         })->get();
 
-        return view('searchCita', compact('appointments')); // Devuelve la vista con los resultados
+        return view('searchCita', compact('appointments')); 
     }
 }

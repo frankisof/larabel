@@ -7,7 +7,7 @@
         <p class="lead">Cuidado con amor y excelencia desde 1998</p>
     </header>
 
-    <!-- Menús debajo del header -->
+ 
     <nav class="menu-container text-center">
         <a href="{{ route('pet.index') }}" class="menu-btn">Pet</a>
         <a href="{{ route('service.index') }}"  class="menu-btn">Servicio</a>

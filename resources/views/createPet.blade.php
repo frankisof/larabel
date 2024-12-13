@@ -4,7 +4,7 @@
 <div class="container" >
     <h2 style="text-align: center; color: #f8f8f8; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);">Crear nueva mascota</h2>
     <form action="{{ route('pets.store') }}" method="POST" style="background-color: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
-        @csrf <!-- Para proteger contra ataques CSRF -->
+        @csrf
         <div class="form-group" style="margin-bottom: 15px;">
             <label for="name" style="font-weight: bold;color:black; margin-bottom: 5px; display: block;">Nombre:</label>
             <input type="text" class="form-control" id="name" name="name" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);">
@@ -23,7 +23,8 @@
                 <option value="undefined">Indefinido</option>
                 <option value="dog">Perro</option>
                 <option value="cat">Gato</option>
-                <!-- Añadir más opciones según tus necesidades -->
+                <option value="dog">Perro</option>
+                <option value="cat">pajaro</option>
             </select>
         </div>
         <button type="submit" class="btn btn-primary" style="background-color: #5a8d44; border: none; padding: 10px 20px; color: #fff; text-transform: uppercase; border-radius: 5px; cursor: pointer;">Crear</button>

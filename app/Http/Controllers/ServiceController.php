@@ -7,20 +7,20 @@ use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
-    // Muestra la lista de servicios
+   
     public function index()
     {
-        $services = Service::all(); // Obtiene todos los servicios
-        return view('Service', compact('services')); // Devuelve la vista con los servicios
+        $services = Service::all(); 
+        return view('Service', compact('services'));
     }
 
-    // Muestra el formulario para crear un nuevo servicio
+ 
     public function create()
     {
-        return view('createService'); // Devuelve la vista para crear un servicio
+        return view('createService'); 
     }
 
-    // Almacena un nuevo servicio en la base de datos
+    
     public function store(Request $request)
     {
         $request->validate([
@@ -29,19 +29,19 @@ class ServiceController extends Controller
             'price' => 'required|numeric|min:0',
         ]);
 
-        Service::create($request->all()); // Crea un nuevo servicio
+        Service::create($request->all()); 
 
-        return redirect()->route('service.index'); // Redirige a la lista de servicios
+        return redirect()->route('service.index'); 
     }
 
-    // Muestra el formulario para editar un servicio existente
+    
     public function edit($id)
     {
-        $service = Service::findOrFail($id); // Encuentra el servicio por su ID
-        return view('editService', compact('service')); // Devuelve la vista de edición
+        $service = Service::findOrFail($id); 
+        return view('editService', compact('service'));
     }
 
-    // Actualiza los detalles de un servicio en la base de datos
+   
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -50,27 +50,27 @@ class ServiceController extends Controller
             'price' => 'required|numeric|min:0',
         ]);
 
-        $service = Service::findOrFail($id); // Encuentra el servicio por su ID
-        $service->update($request->all()); // Actualiza los detalles del servicio
+        $service = Service::findOrFail($id);
+        $service->update($request->all()); 
 
-        return redirect()->route('service.index'); // Redirige a la lista de servicios
+        return redirect()->route('service.index');
     }
 
-    // Elimina un servicio de la base de datos
+    
     public function destroy($id)
     {
-        $service = Service::findOrFail($id); // Encuentra el servicio por su ID
-        $service->delete(); // Elimina el servicio
+        $service = Service::findOrFail($id); 
+        $service->delete(); 
 
-        return redirect()->route('service.index'); // Redirige a la lista de servicios
+        return redirect()->route('service.index'); 
     }
 
-    // Busca servicios por nombre
+    
     public function search(Request $request)
     {
-        $name = $request->input('name'); // Obtiene el nombre ingresado
-        $services = Service::where('name', 'LIKE', "%$name%")->get(); // Busca servicios cuyo nombre coincida parcialmente
+        $name = $request->input('name');
+        $services = Service::where('name', 'LIKE', "%$name%")->get(); 
 
-        return view('searchService', compact('services')); // Devuelve la vista con los resultados
+        return view('searchService', compact('services')); 
     }
 }

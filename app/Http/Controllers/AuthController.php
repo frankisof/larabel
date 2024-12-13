@@ -14,7 +14,7 @@ class AuthController extends Controller
      */
     public function showLoginForm()
     {
-        return view('login'); // Retorna la vista 'login.blade.php'
+        return view('login'); 
     }
 
     /**
@@ -25,25 +25,25 @@ class AuthController extends Controller
      */
     public function login(Request $request)
     {
-        // Validar los datos de entrada
+        
         $credentials = $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        // Intentar autenticar al usuario
+        
         if (Auth::attempt($credentials)) {
-            // Regenera la sesión para prevenir ataques de fijación de sesión
+          
             $request->session()->regenerate();
 
-            // Redirigir al usuario a la ruta 'home' si las credenciales son correctas
+          
             return redirect()->route('home');
         }
 
-        // Retorna un error si la autenticación falla
+       
         return back()->withErrors([
             'email' => 'El correo o la contraseña son incorrectos.',
-        ])->onlyInput('email'); // Mantener el email ingresado
+        ])->onlyInput('email');
     }
 
     /**
@@ -53,7 +53,7 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        Auth::logout(); // Desautenticar al usuario
-        return redirect()->route('login'); // Redirigir al formulario de login
+        Auth::logout();
+        return redirect()->route('login'); 
     }
 }

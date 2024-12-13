@@ -1,4 +1,3 @@
-<!-- resources/views/layouts/app.blade.php -->
 <!DOCTYPE html>
 <html lang="es">
     <li class="nav-item">
@@ -15,7 +14,7 @@
 <body>
     <header>
         <nav>
-            <!-- Puedes añadir un menú si lo necesitas -->
+        
         </nav>
     </header>
     <main class="container">

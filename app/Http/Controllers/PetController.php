@@ -7,20 +7,19 @@ use Illuminate\Http\Request;
 
 class PetController extends Controller
 {
-    // Muestra la lista de mascotas
+
     public function index()
     {
         $pets = Pet::all();
         return view('pets', compact('pets'));
     }
 
-    // Muestra el formulario para crear una nueva mascota
+
     public function create()
     {
-        return view('createPet'); // Cambiado a 'pets.create'
+        return view('createPet'); 
     }
 
-    // Almacena una nueva mascota en la base de datos
     public function store(Request $request)
     {
         $request->validate([
@@ -35,14 +34,14 @@ class PetController extends Controller
         return redirect()->route('pet.index');
     }
 
-    // Muestra el formulario para editar una mascota existente
+
     public function edit($id)
     {
-        $pet = Pet::findOrFail($id); // Encuentra la mascota por su ID
+        $pet = Pet::findOrFail($id);
         return view('editPet', compact('pet'));
     }
 
-    // Actualiza los detalles de una mascota en la base de datos
+ 
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -52,25 +51,25 @@ class PetController extends Controller
             'type' => 'nullable|string',
         ]);
 
-        $pet = Pet::findOrFail($id); // Encuentra la mascota por su ID
-        $pet->update($request->all()); // Actualiza los detalles
+        $pet = Pet::findOrFail($id); 
+        $pet->update($request->all()); 
 
-        return redirect()->route('pet.index'); // Redirige a la lista de mascotas
+        return redirect()->route('pet.index');
     }
 
-    // Elimina una mascota de la base de datos
+
     public function destroy($id)
     {
-        $pet = Pet::findOrFail($id); // Encuentra la mascota por su ID o devuelve error si no se encuentra
-        $pet->delete(); // Elimina la mascota
+        $pet = Pet::findOrFail($id); 
+        $pet->delete(); 
 
-        return redirect()->route('pet.index'); // Redirige de vuelta a la lista de mascotas
+        return redirect()->route('pet.index');
     }
     public function search(Request $request)
 {
-    $name = $request->input('name'); // Obtiene el nombre ingresado
-    $pets = Pet::where('name', 'LIKE', "%$name%")->get(); // Busca mascotas cuyo nombre coincida parcialmente
+    $name = $request->input('name'); 
+    $pets = Pet::where('name', 'LIKE', "%$name%")->get(); 
 
-    return view('searchPet', compact('pets')); // Devuelve la vista con los resultados
+    return view('searchPet', compact('pets'));
 }
 }

@@ -10,10 +10,10 @@ use App\Http\Controllers\AuthController;
 Route::get('/pet', [PetController::class, 'index'])->name('pet.index');
 Route::get('/create', [PetController::class, 'create'])->name('pets.createPet');
 Route::post('/pets', [PetController::class, 'store'])->name('pets.store');
-Route::get('/pets/{id}/edit', [PetController::class, 'edit'])->name('pets.edit'); // Ruta para editar
-Route::put('/pets/{id}', [PetController::class, 'update'])->name('pets.update'); // Ruta para actualizar
-Route::delete('/pets/{id}', [PetController::class, 'destroy'])->name('pets.destroy'); // Ruta para eliminar
-Route::get('/pets/search', [PetController::class, 'search'])->name('pets.search'); // Ruta para buscar
+Route::get('/pets/{id}/edit', [PetController::class, 'edit'])->name('pets.edit'); 
+Route::put('/pets/{id}', [PetController::class, 'update'])->name('pets.update'); 
+Route::delete('/pets/{id}', [PetController::class, 'destroy'])->name('pets.destroy');
+Route::get('/pets/search', [PetController::class, 'search'])->name('pets.search'); 
 Route::get('/home', function () { return view('home'); })->name('home');
 Route::get('/', function () { return view('login'); })->name('login');
 
@@ -35,6 +35,7 @@ Route::put('/citas/{id}', [AppointmentController::class, 'update'])->name('citas
 Route::delete('/citas/{id}', [AppointmentController::class, 'destroy'])->name('citas.destroy');
 Route::get('/citas/search', [AppointmentController::class, 'search'])->name('citas.search');
 
+// Rutas para AuthController
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
